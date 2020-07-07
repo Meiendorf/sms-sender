@@ -1,0 +1,21 @@
+<h1 appColor>История сообщений</h1>
+<p>Сообщение может обрабатываться сервером 2-3 минуты. После обработки оно должно появиться здесь.</p>
+<br/>
+<div class="messages">
+  <app-message
+    *ngIf="!loading"
+    [msg]="{fromName: 'From', toNumber: 'To number', body: 'Body', status: 'Status'}"
+  ></app-message>
+  <app-message
+    *ngFor="let msg of messages"
+    [msg]="msg"
+  ></app-message>
+  <p *ngIf="messages.length === 0 && !loading"
+     style="padding: 0% 35% 0% 43%">No messages yet</p>
+  <div *ngIf="loading"
+       class="loadingio-spinner-rolling-nb9vtkpsob">
+    <div class="ldio-474vo7csu99">
+      <div></div>
+    </div>
+  </div>
+</div>

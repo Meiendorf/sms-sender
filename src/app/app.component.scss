@@ -1,0 +1,44 @@
+.red {
+  background-color: red;
+  box-shadow: grey 2px 2px;
+  color: #fff;
+}
+
+.blue {
+  background-color: blue;
+  box-shadow: none;
+  color: #fff;
+}
+
+p {
+  font-size: 1.5rem;
+
+  &.error {
+    color: red;
+  }
+}
+
+.wrap {
+  border: 1px dashed #ccc;
+  padding: 1rem;
+  margin: 1px;
+}
+
+.btn:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.validation {
+  color: crimson;
+}
+
+input {
+  &.ng-invalid.ng-touched {
+    border: 2px solid red;
+  }
+
+  &.ng-valid.ng-touched {
+    border: 2px solid green;
+  }
+}

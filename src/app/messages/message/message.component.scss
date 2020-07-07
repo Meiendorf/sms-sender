@@ -1,0 +1,8 @@
+.message{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.messageEl {
+  font-weight: bold;
+  border : 1px solid #ccc;
+}

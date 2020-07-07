@@ -1,0 +1,57 @@
+<h1>Отправить смс</h1>
+
+<div>
+  <form *ngIf="!loading" class="card" [formGroup]="form" (ngSubmit)="submit()">
+    <div class="form-control">
+      <input type="text" placeholder="От кого" formControlName="nameFrom"/>
+      <div
+        *ngIf="form.get('nameFrom').invalid && form.get('nameFrom').touched"
+        class="validation">
+        <small *ngIf="form.get('nameFrom').errors.required">
+          Поле не может быть пустым
+        </small>
+        <small *ngIf="form.get('nameFrom').errors.maxlength">
+          Максимальная длина - 11 символов
+        </small>
+        <small *ngIf="form.get('nameFrom').errors.pattern">
+          Имя отправителя должно содержать только латинские буквы, без пробелов
+        </small>
+      </div>
+    </div>
+    <div class="form-control">
+      <input type="text" placeholder="Номер телефона" formControlName="numberTo"/>
+      <div
+        *ngIf="form.get('numberTo').invalid && form.get('numberTo').touched"
+        class="validation">
+        <small *ngIf="form.get('numberTo').errors.required">
+          Поле не может быть пустым
+        </small>
+        <small *ngIf="form.get('numberTo').errors.pattern">
+          Номер телефона должен быть в формате +37368000000
+        </small>
+      </div>
+    </div>
+    <div class="form-control">
+      <textarea rows="2" placeholder="Текст" formControlName="body"></textarea>
+      <div
+        *ngIf="form.get('body').invalid && form.get('body').touched"
+        class="validation">
+        <small *ngIf="form.get('body').errors.required">
+          Поле не может быть пустым
+        </small>
+        <small *ngIf="form.get('body').errors.maxlength">
+          Максимальная длина - 80 символов
+        </small>
+      </div>
+    </div>
+    <button class="btn" [disabled]="form.invalid">Отправочка</button>
+  </form>
+  <div style="text-align: center">
+    <div *ngIf="loading"
+         class="loadingio-spinner-rolling-nb9vtkpsob">
+      <div class="ldio-474vo7csu99">
+        <div></div>
+      </div>
+    </div>
+  </div>
+</div>
